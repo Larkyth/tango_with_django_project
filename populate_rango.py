@@ -10,20 +10,20 @@ from rango.models import Category, Page
 def populate():
 
     python_pages = [
-        {'title': 'Official Python Tutorial', 'url': 'http://docs.python.org/3/tutorial/'},
-        {'title': 'How to Think like a Computer Scientist', 'url': 'http://www.greenteapress.com/thinkpython/'},
-        {'title': 'Learn Python in 10 Minutes', 'url': 'http://www.korokithakis.net/tutorials/python/'}
+        {'title': 'Official Python Tutorial', 'views': 42, 'url': 'http://docs.python.org/3/tutorial/'},
+        {'title': 'How to Think like a Computer Scientist', 'views': 41, 'url': 'http://www.greenteapress.com/thinkpython/'},
+        {'title': 'Learn Python in 10 Minutes', 'views': 40, 'url': 'http://www.korokithakis.net/tutorials/python/'}
     ]
 
     django_pages = [
-        {'title': 'Official Django Tutorial', 'url': 'https://docs.djangoproject.com/en/2.1/intro/tutorial01/'},
-        {'title': 'Django Rocks', 'url': 'http://www.djangorocks.com/'},
-        {'title': 'How to Tango with Django', 'url': 'http://www.tangowithdjango.com/'}
+        {'title': 'Official Django Tutorial', 'views': 32, 'url': 'https://docs.djangoproject.com/en/2.1/intro/tutorial01/'},
+        {'title': 'Django Rocks', 'views': 31, 'url': 'http://www.djangorocks.com/'},
+        {'title': 'How to Tango with Django', 'views': 30, 'url': 'http://www.tangowithdjango.com/'}
     ]
 
     other_pages = [
-        {'title': 'Bottle', 'url': 'http://bottlepy.org/docs/dev/'},
-        {'title':'Flask', 'url': 'http://flask.pocoo.org'}
+        {'title': 'Bottle', 'views': 22, 'url': 'http://bottlepy.org/docs/dev/'},
+        {'title':'Flask', 'views': 21, 'url': 'http://flask.pocoo.org'}
     ]
 
     cats = {'Python': {'views': 128, 'likes': 64, 'pages': python_pages},
@@ -34,7 +34,7 @@ def populate():
     for cat, cat_data in cats.items():
         c = add_cat(cat,cat_data['views'],cat_data['likes'])
         for p in cat_data['pages']:
-            add_page(c, p['title'], p['url'])
+            add_page(c, p['title'], p['url'], p['views'])
 
     # Print categories added
     for c in Category.objects.all():

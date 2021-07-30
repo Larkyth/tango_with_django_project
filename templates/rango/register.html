@@ -18,7 +18,7 @@
     {% else %}
 
         Rango says: <strong>register here!</strong>
-        <form id = "user_form" method = "post" action = "{% url 'rango:register' %}"
+        <form id="user_form" method="post" action="{% url 'rango:register' %}"
          enctype="multipart/form-data">
     
             {% csrf_token %}
@@ -27,7 +27,7 @@
             {{ profile_form.as_p }}
 
             <!--Button for submission-->
-            <input type = "submit" name = "submit" value = "Register" />
+            <input type="submit" name="submit" value="Register" />
 
         </form>
     {% endif %}

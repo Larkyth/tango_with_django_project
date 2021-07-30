@@ -1,29 +1,26 @@
-<!DOCTYPE html>
+{% extends 'rango/base.html' %}
 
-<html>
+{% block title_block %}
+    Add a Page
+{% endblock %}
 
-    <head>
-        <title>Rango</title>
-    </head>
+{% block body_block %}
 
-    <body>
-        <h1>Add a Page to Category: {{ category.name }}</h1>
-        
-        <div>
-            <form id="page_form" method="post" action="/rango/category/{{ category.slug }}/add_page/">
-                {% csrf_token %}
-                {% for hidden in form.hidden_fields %}
-                    {{ hidden }}
-                {% endfor %}
-                {% for field in form.visible_fields %}
-                    {{ field.errors }}
-                    {{ field.help_text }}
-                    {{ field }}
-                {% endfor %}
-                <input type="submit" name="submit" value="Add Page" />
-            </form>
-        </div>
+    <h1>Add a Page to Category: {{ category.name }}</h1>
+    
+    <div>
+        <form id="page_form" method="post" action="/rango/category/{{ category.slug }}/add_page/">
+            {% csrf_token %}
+            {% for hidden in form.hidden_fields %}
+                {{ hidden }}
+            {% endfor %}
+            {% for field in form.visible_fields %}
+                {{ field.errors }}
+                {{ field.help_text }}
+                {{ field }}
+            {% endfor %}
+            <input type="submit" name="submit" value="Add Page" />
+        </form>
+    </div>
 
-    </body>
-
-</html>
+{% endblock %}

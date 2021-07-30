@@ -23,7 +23,7 @@ def index(request):
 
 def about(request):
     context_about = {'boldmessage': 'This tutorial has been put together by Vic'}
-    return render(request,'rango/about.html',context=context_about)
+    return render(request, 'rango/about.html', context=context_about)
 
 
 def show_category(request, category_name_slug):
@@ -51,7 +51,7 @@ def add_category(request):
 
         if form.is_valid():
             form.save(commit=True)
-            return redirect('/rango/')
+            return redirect('{/rango/}')
         else:
             print(form.errors)
 
